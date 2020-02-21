@@ -1,0 +1,86 @@
+npm i @expo/vector-icons
+https://expo.github.io/vector-icons/
+import { FontAwesome } from '@expo/vector-icons';
+<FontAwesome name="plus" size={20} />
+
+expo init track --template blank --name track
+
+npm install react-navigation
+
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+npm install react-navigation-stack @react-native-community/masked-view
+
+npm install react-navigation-tabs
+
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+mkdir /src
+
+mkdir /src/screens
+
+setup navigation in App.js
+
+npm i react-native-elements
+
+touch /src/components/Spacer.js
+
+mkdir /src/context 
+
+touch create_data_context.js
+
+touch AuthContext.js
+
+App.js 
+
+import { Provider as AuthProvider } from "./src/context/AuthContext";
+
+const App = createAppContainer(switch_navigator);
+
+export default () => {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+};
+
+Define auth actions inside AuthContext
+
+touch /src/navigation_refs.js (This allows you to navigate from outside your App e.g. Navigate inside Context method)
+
+npm i axios
+
+mkdir /src/api touch tracker.js
+
+If you are testing the app on a physical device (e.g. iphone)
+it may be runnng on a difference network than your machine's where 
+the api is running - it is easier to test with ngrok
+
+ngrok creates a connection to your localhost's express 
+server/API with a public facing URL that your phone can access.
+ngrok URL expires every 8 hours - requires restarting ngrok and
+replacing the configure axios baseURL
+
+npm i -g ngrok
+
+touch /src/navigation_ref.js (a way to access react navigation 
+from outside a component e.g. AuthContext.js)
+
+npx expo-cli install react-native-maps
+
+npx expo-cli install expo-location
+
+Resetting location permissions for testing:
+ios -> Settings -> General -> Reset -> Reset Location & Privacy
+
+touch /src/_mock_location.js (Test file for mocking user's 
+location without having to actually change location physically)
+
+The order in which the providers wrapped the App.js component in 
+this case do not matter.
+
+use withNavigationFocus to track when to disable location tracking (isFocused prop)
+
+Need to pass the isFocused prop into our use_location hook helper

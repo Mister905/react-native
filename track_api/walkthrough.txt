@@ -1,0 +1,8 @@
+npm init -> server.js
+npm i bcrypt express jsonwebtoken mongoose nodemon
+touch server.js
+mongoDB Atlas -> New Project
+mkdir routes
+touch /routes/auth.js
+mkdir middleware
+touch /middleware/auth.js
